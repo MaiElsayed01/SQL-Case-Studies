@@ -65,7 +65,7 @@ order by Purchased desc;
 ```
 
 | Product                | Purchased|
-+------------------------+----------+
+|------------------------|----------|
 | ramen                  | 8        |
 
 ## 5. Which item was the most popular for each customer?
@@ -89,7 +89,7 @@ INNER JOIN menu m ON m.product_id = p.product_id
 WHERE rank = 1;
 ```
 | Customer    | Product                | Count |
-+-------------+------------------------+-------+
+|-------------|------------------------|-------|
 | A           | ramen                  | 3     |
 | B           | sushi                  | 2     |
 | B           | curry                  | 2     |
@@ -119,7 +119,7 @@ FROM ranked_orders r, menu m
 WHERE r.product_id = m.product_id AND r.rank = 1;
 ```
 | Customer ID | Product                | Order Date | Join Date  |
-+-------------+------------------------+------------+------------+
+|-------------|------------------------|------------|------------|
 | A           | curry                  | 2021-01-07 | 2021-01-07 |
 | B           | sushi                  | 2021-01-11 | 2021-01-09 |
 
@@ -147,7 +147,7 @@ WHERE r.product_id = m.product_id
 AND r.rank = 1;
 ```
 | Customer ID | Product                | Order Date | Join Date  |
-+-------------+------------------------+------------+------------+
+|-------------|------------------------|------------|------------|
 | A           | sushi                  | 2021-01-01 | 2021-01-07 |
 | B           | sushi                  | 2021-01-04 | 2021-01-09 |
 | C           | ramen                  | 2021-01-07 | 2021-01-25 |
@@ -174,7 +174,7 @@ WHERE b.product_id = m.product_id
 GROUP BY b.customer_id;
 ```
 | Customer    | Products | Total Price|
-+-------------+----------+------------+
+|-------------|----------|------------|
 | A           | 2        | 25         |
 | B           | 3        | 40         |
 | C           | 3        | 36         |
@@ -196,7 +196,7 @@ GROUP BY customer_id;
 ```
 
 | Customer ID | Points |
-+-------------+--------+
+|-------------|--------|
 | A           | 860    |
 | B           | 940    |
 | C           | 360    |
@@ -226,7 +226,7 @@ GROUP BY d.customer_id;
 ```
 
 | Customer ID | Points |
-+-------------+--------+
+|-------------|--------|
 | A           | 1370   |
 | B           | 940    |
 | C           | 360    |
@@ -253,7 +253,7 @@ SELECT * FROM join_all;
 ```
 
 | Customer ID | Order Date | Product        | Price | Member |
-+-------------+------------+----------------+-------+--------+
+|-------------|------------|----------------|-------|--------|
 | A           | 2021-01-01 | sushi          | 10    | N      |
 | A           | 2021-01-01 | curry          | 15    | N      |
 | A           | 2021-01-07 | curry          | 15    | Y      |
@@ -297,7 +297,7 @@ SELECT *,
 FROM join_all a;
 ```
 | Customer ID | Order Date | Product        | Price | Member | Ranking|
-+-------------+------------+----------------+-------+--------+--------+
+|-------------|------------|----------------|-------|--------|--------|
 | A           | 2021-01-01 | sushi          | 10    | N      | NULL   |
 | A           | 2021-01-01 | curry          | 15    | N      | NULL   |
 | A           | 2021-01-07 | curry          | 15    | Y      | 1      |
