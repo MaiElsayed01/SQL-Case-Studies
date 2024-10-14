@@ -8,7 +8,7 @@ GROUP BY s.customer_id;
 ```
 
 | Customer ID | Total Price |
-----------------------------
+|---------------------------|
 | A           | 76          |
 | B           | 74          |
 | C           | 36          |
@@ -21,7 +21,7 @@ FROM sales
 GROUP BY customer_id;
 ```
 | Customer ID | Days |
-+-------------+------+
+|--------------------|
 | A           | 4    |
 | B           | 6    |
 | C           | 2    |
