@@ -1,5 +1,3 @@
-
-
 ## 1.How many pizzas were ordered?
 ```sql
 SELECT COUNT(pizza_id) [Ordered Pizza Count]
@@ -69,7 +67,6 @@ GROUP BY c.order_id
 ORDER BY 2 DESC;
 ```
 ![5](image-5.png)
-
 
 ## 7.For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
 ```sql

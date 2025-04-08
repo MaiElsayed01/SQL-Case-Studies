@@ -33,11 +33,10 @@ ALTER COLUMN distance FLOAT;
 
 ALTER TABLE RunnersOrders
 ALTER COLUMN duration INT;
-
 ```
 | before | after |
+|--------|-------|
 | ![before](image.png) | ![after](image-1.png) |
-
 
 ## CustomerOrder Table Clean
 
@@ -45,15 +44,16 @@ ALTER COLUMN duration INT;
 UPDATE CustomerOrder
 SET exclusions = null
 WHERE exclusions = '' or exclusions = 'null';
---
+
 UPDATE CustomerOrder
 SET extras = null
 WHERE extras = '' or extras = 'null';
---
+
 ALTER TABLE CustomerOrder
 ALTER COLUMN order_time DATETIME;
 ```
 | before | after |
+|--------|-------|
 | ![before](image-2.png) | ![after](image-3.png) |
 
 ## PizzaName Table Clean
@@ -64,6 +64,7 @@ ALTER COLUMN pizza_name VARCHAR(15);
 ```
 
 ## PizzaRecieps Table Clean
+
 ```sql
 ALTER TABLE PizzaRecieps
 ALTER COLUMN toppings VARCHAR(100);
