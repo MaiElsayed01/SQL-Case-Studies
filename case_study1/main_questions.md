@@ -6,13 +6,12 @@ FROM sales AS s
 INNER JOIN menu AS m ON s.product_id = m.product_id
 GROUP BY s.customer_id;
 ```
-+-------------+-------------+
+
 | Customer ID | Total Price |
-+-------------+-------------+
+|-------------|-------------|
 | A           | 76          |
 | B           | 74          |
 | C           | 36          |
-+-------------+-------------+
 
 ## 2. How many days has each customer visited the restaurant?
 
@@ -21,13 +20,11 @@ SELECT customer_id AS [Customer ID], COUNT(DISTINCT order_date) AS [Days]
 FROM sales 
 GROUP BY customer_id;
 ```
-+-------------+------+
 | Customer ID | Days |
-+-------------+------+
+|-------------|------|
 | A           | 4    |
 | B           | 6    |
 | C           | 2    |
-+-------------+------+
 
 ## 3.What was the first item from the menu purchased by each customer?
 
@@ -47,13 +44,11 @@ inner join menu as m
 on d.product_id = m.product_id
 where d.rank = 1;
 ```
-+-------------+------------------------+
 | Customer ID | First Purchased Product |
-+-------------+------------------------+
+|-------------|------------------------|
 | A           | sushi                  |
 | B           | curry                  |
 | C           | ramen                  |
-+-------------+------------------------+
 
 ## 4.What is the most purchased item on the menu and how many times was it purchased by all customers?
 
@@ -69,11 +64,9 @@ group by m.product_name
 order by Purchased desc;
 ```
 
-+------------------------+----------+
 | Product                | Purchased|
-+------------------------+----------+
+|------------------------|----------|
 | ramen                  | 8        |
-+------------------------+----------+
 
 ## 5. Which item was the most popular for each customer?
 
@@ -95,15 +88,13 @@ FROM product_rank p
 INNER JOIN menu m ON m.product_id = p.product_id
 WHERE rank = 1;
 ```
-+-------------+------------------------+-------+
 | Customer    | Product                | Count |
-+-------------+------------------------+-------+
+|-------------|------------------------|-------|
 | A           | ramen                  | 3     |
 | B           | sushi                  | 2     |
 | B           | curry                  | 2     |
 | B           | ramen                  | 2     |
 | C           | ramen                  | 3     |
-+-------------+------------------------+-------+
 
 ## 6. Which item was purchased first by the customer after they became a member?
 
@@ -127,12 +118,10 @@ SELECT
 FROM ranked_orders r, menu m
 WHERE r.product_id = m.product_id AND r.rank = 1;
 ```
-+-------------+------------------------+------------+------------+
 | Customer ID | Product                | Order Date | Join Date  |
-+-------------+------------------------+------------+------------+
+|-------------|------------------------|------------|------------|
 | A           | curry                  | 2021-01-07 | 2021-01-07 |
 | B           | sushi                  | 2021-01-11 | 2021-01-09 |
-+-------------+------------------------+------------+------------+
 
 ## 7. Which item was purchased just before the customer became a member?
 
@@ -157,13 +146,11 @@ FROM ranked_orders r, menu m
 WHERE r.product_id = m.product_id 
 AND r.rank = 1;
 ```
-+-------------+------------------------+------------+------------+
 | Customer ID | Product                | Order Date | Join Date  |
-+-------------+------------------------+------------+------------+
+|-------------|------------------------|------------|------------|
 | A           | sushi                  | 2021-01-01 | 2021-01-07 |
 | B           | sushi                  | 2021-01-04 | 2021-01-09 |
 | C           | ramen                  | 2021-01-07 | 2021-01-25 |
-+-------------+------------------------+------------+------------+
 
 ## 8. What is the total items and amount spent for each member before they became a member?
 
@@ -186,13 +173,11 @@ FROM before_join_orders b, menu m
 WHERE b.product_id = m.product_id
 GROUP BY b.customer_id;
 ```
-+-------------+----------+------------+
 | Customer    | Products | Total Price|
-+-------------+----------+------------+
+|-------------|----------|------------|
 | A           | 2        | 25         |
 | B           | 3        | 40         |
 | C           | 3        | 36         |
-+-------------+----------+------------+
 
 ## 9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 
@@ -209,13 +194,13 @@ FROM sales s, menu m
 WHERE s.product_id = m.product_id
 GROUP BY customer_id;
 ```
-+-------------+--------+
+
 | Customer ID | Points |
-+-------------+--------+
+|-------------|--------|
 | A           | 860    |
 | B           | 940    |
 | C           | 360    |
-+-------------+--------+
+
 
 ## 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items - how many points do customer A and B have at the end of January?
 
@@ -239,13 +224,12 @@ FROM valid_dates d, menu m, sales s
 WHERE d.customer_id = s.customer_id AND s.product_id = m.product_id 
 GROUP BY d.customer_id;
 ```
-+-------------+--------+
+
 | Customer ID | Points |
-+-------------+--------+
+|-------------|--------|
 | A           | 1370   |
 | B           | 940    |
 | C           | 360    |
-+-------------+--------+
 
 ## Bonus: Join All The Things
 
@@ -267,9 +251,9 @@ WITH join_all AS (
 
 SELECT * FROM join_all;
 ```
-+-------------+------------+----------------+-------+--------+
+
 | Customer ID | Order Date | Product        | Price | Member |
-+-------------+------------+----------------+-------+--------+
+|-------------|------------|----------------|-------|--------|
 | A           | 2021-01-01 | sushi          | 10    | N      |
 | A           | 2021-01-01 | curry          | 15    | N      |
 | A           | 2021-01-07 | curry          | 15    | Y      |
@@ -285,7 +269,7 @@ SELECT * FROM join_all;
 | C           | 2021-01-01 | ramen          | 12    | N      |
 | C           | 2021-01-01 | ramen          | 12    | N      |
 | C           | 2021-01-07 | ramen          | 12    | N      |
-+-------------+------------+----------------+-------+--------+
+
 
 ## Bonus: Rank All The Things
 
@@ -312,9 +296,8 @@ SELECT *,
     END AS Ranking
 FROM join_all a;
 ```
-+-------------+------------+----------------+-------+--------+--------+
 | Customer ID | Order Date | Product        | Price | Member | Ranking|
-+-------------+------------+----------------+-------+--------+--------+
+|-------------|------------|----------------|-------|--------|--------|
 | A           | 2021-01-01 | sushi          | 10    | N      | NULL   |
 | A           | 2021-01-01 | curry          | 15    | N      | NULL   |
 | A           | 2021-01-07 | curry          | 15    | Y      | 1      |
@@ -330,4 +313,3 @@ FROM join_all a;
 | C           | 2021-01-01 | ramen          | 12    | N      | NULL   |
 | C           | 2021-01-01 | ramen          | 12    | N      | NULL   |
 | C           | 2021-01-07 | ramen          | 12    | N      | NULL   |
-+-------------+------------+----------------+-------+--------+--------+
