@@ -57,25 +57,25 @@ ADD record_id INT IDENTITY(1,1) PRIMARY KEY;
 ```
 | before | after |
 |--------|-------|
-| ![Image](https://github.com/user-attachments/assets/a760a26d-7fa1-496e-9648-bcf43901a61a) | ![after](https://github.com/user-attachments/assets/edb092ae-9fb1-4d7a-bf93-0a15a1118da0) |
+| ![3](https://github.com/user-attachments/assets/a760a26d-7fa1-496e-9648-bcf43901a61a) | ![4](https://github.com/user-attachments/assets/edb092ae-9fb1-4d7a-bf93-0a15a1118da0) |
 
 ## PizzaName Table
 
 ```sql
 ALTER TABLE PizzaName
-ALTER COLUMN pizza_name VARCHAR(15);
+ALTER COLUMN pizza_name VARCHAR(max);
 ```
 
 ## PizzaRecieps Table
 
 ```sql
 ALTER TABLE PizzaRecieps
-ALTER COLUMN toppings VARCHAR(100);
+ALTER COLUMN toppings VARCHAR(max);
 ```
 
 ## Toppings Table 
 
 ```sql
 ALTER TABLE Toppings
-ALTER COLUMN topping_name VARCHAR(100);
+ALTER COLUMN topping_name VARCHAR(max);
 ```
