@@ -3,14 +3,14 @@
 SELECT COUNT(pizza_id) [Ordered Pizza Count]
 FROM CustomerOrder;
 ```
-![0](image.png)
+![1](https://github.com/user-attachments/assets/eef8f550-0282-4244-aca3-9474107aa91a)
 
 ## 2.How many unique customer orders were made?
 ```sql
 SELECT COUNT(DISTINCT order_id) [Orders Count]
 FROM CustomerOrder;
 ```
-![1](image-1.png)
+![2](https://github.com/user-attachments/assets/b5ce4409-4474-4314-8d30-76954142b015)
 
 ## 3.How many successful orders were delivered by each runner?
 ```sql
@@ -21,7 +21,7 @@ FROM RunnersOrders
 WHERE cancellation IS NULL
 GROUP BY runner_id;
 ```
-![2](image-2.png)
+![3](https://github.com/user-attachments/assets/b9726a28-b7a9-452a-bf4b-f099a4a82026)
 
 ## 4.How many of each type of pizza was delivered?
 ```sql
@@ -36,7 +36,7 @@ ON  p.pizza_id = c.pizza_id
 WHERE r.cancellation IS NULL
 GROUP BY p.pizza_name;
 ```
-![3](image-3.png)
+![4](https://github.com/user-attachments/assets/75bb8a5d-b7b9-44b1-9e89-57cb51570fa4)
 
 ## 5.How many Vegetarian and Meatlovers were ordered by each customer?
 ```sql
@@ -50,7 +50,7 @@ FROM
 WHERE  p.pizza_id = c.pizza_id
 GROUP BY pizza_name, customer_id;
 ```
-![4](image-4.png)
+![5](https://github.com/user-attachments/assets/8612e143-9479-4b17-a85c-3c5820c84d07)
 
 ## 6.What was the maximum number of pizzas delivered in a single order?
 ```sql
@@ -66,7 +66,7 @@ WHERE
 GROUP BY c.order_id
 ORDER BY 2 DESC;
 ```
-![5](image-5.png)
+![6](https://github.com/user-attachments/assets/408c7a78-5f28-45c7-aa68-21e1eb2a2efa)
 
 ## 7.For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
 ```sql
@@ -93,7 +93,7 @@ WHERE
 	cancellation IS NULL
 GROUP BY customer_id;
 ```
-![6](image-6.png)
+![7](https://github.com/user-attachments/assets/f66f880b-2a0b-4eca-b4e1-7a6672ab0490)
 
 ## 8.How many pizzas were delivered that had both exclusions and extras?
 ```sql
@@ -107,7 +107,7 @@ WHERE
 	AND
 	extras IS NOT NULL;
 ```
-![7](image-7.png)
+![8](https://github.com/user-attachments/assets/baf76bc6-e29f-42dc-85a5-8695d1e59f52)
 
 ## 9.What was the total volume of pizzas ordered for each hour of the day?
 ```sql
@@ -117,7 +117,7 @@ SELECT
 FROM CustomerOrder
 GROUP BY DATEPART(HOUR, order_time);
 ```
-![8](image-8.png)
+![9](https://github.com/user-attachments/assets/f0224117-a8f2-49a4-b21b-752c86ad24e6)
 
 ## 10.What was the volume of orders for each day of the week?
 ```sql
@@ -127,4 +127,4 @@ SELECT
 FROM CustomerOrder
 GROUP BY FORMAT(order_time, 'dddd');
 ```
-![9](image-9.png)
+![9](https://github.com/user-attachments/assets/3592385a-de69-4c5d-bc20-8e4459ca1805)
