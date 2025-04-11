@@ -1,4 +1,4 @@
-## 1. 1.What are the standard ingredients for each pizza?
+### 1.What are the standard ingredients for each pizza?
 
 ```sql
 CREATE VIEW PizzaIngredientsList AS
@@ -34,7 +34,7 @@ GROUP BY pn.pizza_name;
 ```
 ![1.2](https://github.com/user-attachments/assets/87f0cbbc-3f93-402d-94c6-72358eecd6b4)
 
-## 2.What was the most commonly added extra?
+### 2.What was the most commonly added extra?
 
 ```sql
 SELECT
@@ -47,7 +47,7 @@ ORDER BY Frequency DESC;
 ```
 ![2](https://github.com/user-attachments/assets/1253fd69-cc02-4f33-a736-b9807adbdaaa)
 
-## 3.What was the most common exclusion?
+### 3.What was the most common exclusion?
 
 ```sql
 SELECT 
@@ -60,7 +60,7 @@ ORDER BY Frequency DESC;
 ```
 ![3](https://github.com/user-attachments/assets/e122942c-7285-4b66-a3cc-3b5563473aaf)
 
-## 4.Generate an order item for each record in the customers_orders table in the format of one of the following: Meat Lovers<br>Meat Lovers - Exclude Beef<br>Meat Lovers - Extra Bacon<br>Meat Lovers - Exclude Cheese, Bacon - Extra Mushroom, Peppers
+### 4.Generate an order item for each record in the customers_orders table in the format of one of the following: Meat Lovers<br>Meat Lovers - Exclude Beef<br>Meat Lovers - Extra Bacon<br>Meat Lovers - Exclude Cheese, Bacon - Extra Mushroom, Peppers
 
 ```sql
 WITH  extra AS (

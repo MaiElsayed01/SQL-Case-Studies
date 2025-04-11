@@ -1,18 +1,18 @@
-## 1.How many pizzas were ordered?
+### 1.How many pizzas were ordered?
 ```sql
 SELECT COUNT(pizza_id) [Ordered Pizza Count]
 FROM CustomerOrder;
 ```
 ![1](https://github.com/user-attachments/assets/eef8f550-0282-4244-aca3-9474107aa91a)
 
-## 2.How many unique customer orders were made?
+### 2.How many unique customer orders were made?
 ```sql
 SELECT COUNT(DISTINCT order_id) [Orders Count]
 FROM CustomerOrder;
 ```
 ![2](https://github.com/user-attachments/assets/b5ce4409-4474-4314-8d30-76954142b015)
 
-## 3.How many successful orders were delivered by each runner?
+### 3.How many successful orders were delivered by each runner?
 ```sql
 SELECT 
 	runner_id Runner
@@ -23,7 +23,7 @@ GROUP BY runner_id;
 ```
 ![3](https://github.com/user-attachments/assets/b9726a28-b7a9-452a-bf4b-f099a4a82026)
 
-## 4.How many of each type of pizza was delivered?
+### 4.How many of each type of pizza was delivered?
 ```sql
 SELECT 
 	p.pizza_name Pizza
@@ -38,7 +38,7 @@ GROUP BY p.pizza_name;
 ```
 ![4](https://github.com/user-attachments/assets/75bb8a5d-b7b9-44b1-9e89-57cb51570fa4)
 
-## 5.How many Vegetarian and Meatlovers were ordered by each customer?
+### 5.How many Vegetarian and Meatlovers were ordered by each customer?
 ```sql
 SELECT 
 	customer_id Customer
@@ -52,7 +52,7 @@ GROUP BY pizza_name, customer_id;
 ```
 ![5](https://github.com/user-attachments/assets/8612e143-9479-4b17-a85c-3c5820c84d07)
 
-## 6.What was the maximum number of pizzas delivered in a single order?
+### 6.What was the maximum number of pizzas delivered in a single order?
 ```sql
 SELECT  TOP 1
 	c.order_id
@@ -68,7 +68,7 @@ ORDER BY 2 DESC;
 ```
 ![6](https://github.com/user-attachments/assets/408c7a78-5f28-45c7-aa68-21e1eb2a2efa)
 
-## 7.For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
+### 7.For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
 ```sql
 SELECT  
 	customer_id
@@ -95,7 +95,7 @@ GROUP BY customer_id;
 ```
 ![7](https://github.com/user-attachments/assets/f66f880b-2a0b-4eca-b4e1-7a6672ab0490)
 
-## 8.How many pizzas were delivered that had both exclusions and extras?
+### 8.How many pizzas were delivered that had both exclusions and extras?
 ```sql
 SELECT 
 	COUNT(*) [Pizza With Exclusions and Extras]
@@ -109,7 +109,7 @@ WHERE
 ```
 ![8](https://github.com/user-attachments/assets/baf76bc6-e29f-42dc-85a5-8695d1e59f52)
 
-## 9.What was the total volume of pizzas ordered for each hour of the day?
+### 9.What was the total volume of pizzas ordered for each hour of the day?
 ```sql
 SELECT 
 		DATEPART(HOUR, order_time) hour

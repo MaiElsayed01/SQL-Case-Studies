@@ -1,4 +1,4 @@
-## RunnersOrders Table Clean
+### RunnersOrders Table Clean
 
 ```sql
 UPDATE RunnersOrders
@@ -38,7 +38,7 @@ ALTER COLUMN duration INT;
 |--------|-------|
 | ![1](https://github.com/user-attachments/assets/16f57dc7-ab83-40ee-b496-3475c61d3c6f) | ![2](https://github.com/user-attachments/assets/8c1a44c5-d934-4c75-8c87-646c60b375a3) |
 
-## CustomerOrder Table Clean
+### CustomerOrder Table Clean
 
 ```sql
 UPDATE CustomerOrder
@@ -59,21 +59,21 @@ ADD record_id INT IDENTITY(1,1) PRIMARY KEY;
 |--------|-------|
 | ![3](https://github.com/user-attachments/assets/a760a26d-7fa1-496e-9648-bcf43901a61a) | ![4](https://github.com/user-attachments/assets/edb092ae-9fb1-4d7a-bf93-0a15a1118da0) |
 
-## PizzaName Table
+### PizzaName Table
 
 ```sql
 ALTER TABLE PizzaName
 ALTER COLUMN pizza_name VARCHAR(max);
 ```
 
-## PizzaRecieps Table
+### PizzaRecieps Table
 
 ```sql
 ALTER TABLE PizzaRecieps
 ALTER COLUMN toppings VARCHAR(max);
 ```
 
-## Toppings Table 
+### Toppings Table 
 
 ```sql
 ALTER TABLE Toppings
