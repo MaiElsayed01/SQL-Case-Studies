@@ -20,6 +20,7 @@ select
 from customer_transactions
 where txn_type = 'deposit';
 ```
+![2](https://github.com/user-attachments/assets/3a11f0e5-f49a-45b8-b3cb-dec1368e56d1)
 
 ### 3.What is the average total historical deposit counts and amounts for all customers?
 
