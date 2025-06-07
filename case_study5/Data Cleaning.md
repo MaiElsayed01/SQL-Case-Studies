@@ -1,6 +1,6 @@
-#### - Add a week_number as the second column for each week_date value, for example any value from the 1st of January to 7th of January will be 1, 8th to 14th will be 2 etc
-#### - Add a month_number with the calendar month for each week_date value as the 3rd column
-#### - Add a calendar_year column as the 4th column containing either 2018, 2019 or 2020 values
+#### Add a week_number as the second column for each week_date value
+#### Add a month_number with the calendar month for each week_date value as the 3rd column
+#### Add a calendar_year column as the 4th column containing either 2018, 2019 or 2020 values
 ```sql
 ALTER TABLE weekly_sales
 ADD
@@ -24,10 +24,11 @@ ADD age_band AS (
 ```sql
 ALTER TABLE weekly_sales
 ADD demographic AS (
-					CASE WHEN LEFT(segment, 1) = 'F' THEN 'Families' 
-							WHEN  LEFT(segment, 1) = 'C' THEN 'Couples'
-							ELSE 'Unknown'
-							END	);
+			CASE WHEN LEFT(segment, 1) = 'F' THEN 'Families' 
+				WHEN  LEFT(segment, 1) = 'C' THEN 'Couples'
+				ELSE 'Unknown'
+				END	
+            );
 ```
 
 #### Generate a new avg_transaction column as the sales value divided by transactions rounded to 2 decimal places for each record

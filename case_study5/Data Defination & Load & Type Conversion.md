@@ -1,4 +1,4 @@
-### Step 1: Prepare the Data
+#### Step 1: Prepare the Data
 - The data was initially copied into a CSV file, followed by preprocessing using a Bash script to clean and standardize the format.
 
 #### Step 2: Create Database and Table
